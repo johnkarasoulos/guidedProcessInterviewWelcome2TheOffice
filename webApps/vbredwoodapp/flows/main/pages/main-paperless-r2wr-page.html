@@ -1,0 +1,25 @@
+<!-- vb default-layout:flex -->
+<div>
+  <oj-sp-simple-create-edit id="Step0R2WR" page-title="Create Return to Work Review"
+    page-subtitle="New Return to Work document" avatar="{{$page.variables.avatar}}"
+    primary-action.disabled="{{!($page.variables.primaryAlwaysOn || ($page.variables.dirtyDataFlag ? true : $page.variables.isSaved))}}"
+    display-options.save="{{$page.variables.saveOption!=='off'?$page.variables.dirtyDataFlag?'on':'disabled':'off'}}"
+    display-options.go-to-parent="{{$page.variables.goToParentOption }}"
+    contextual-info-sticky="{{ $page.variables.contextualInfoSticky }}"
+    display-options.contextual-info-label="{{$page.variables.contextualInfoLabelVisible}}"
+    display-mode="[[$page.variables.displayMode]]" on-sp-cancel="[[$listeners.ojSpCancel]]"
+    on-sp-save="[[$listeners.ojSpSave]]" on-sp-go-to-parent="[[$listeners.ojSpGoToParent]]"
+    on-sp-primary-action="[[$listeners.ojSpSubmit]]" primary-action.label="Create Review" display-options.feedback="on" 
+  >
+    <oj-validation-group id="return2WorkReviews-validation-group--162233100-1" valid="valid" slot="main">
+      <oj-form-layout id="oj-form-layout--162233100-1" class="oj-formlayout-full-width">
+        <oj-input-text value="{{ $variables.return2WorkReviews.colleagueName }}" label-hint="Colleague Name"
+          required="true" id="Step0ColleagueName"></oj-input-text>
+        <oj-input-text value="{{ $variables.return2WorkReviews.colleaguePosition }}" label-hint="ColleaguePosition"></oj-input-text>
+      </oj-form-layout>
+    </oj-validation-group>
+  </oj-sp-simple-create-edit>
+  <oj-sp-message-unsaved-changes id="dirtyDataWarningDialog"
+    on-oj-sp-discard-changes="[[ $listeners.confirmYesOjAction ]]" on-oj-sp-cancel="[[ $listeners.confirmNoOjAction ]]"
+    display="save"></oj-sp-message-unsaved-changes>
+</div>

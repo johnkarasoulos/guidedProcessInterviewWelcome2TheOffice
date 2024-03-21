@@ -1,0 +1,16 @@
+{
+  "root": "resetStep3SelfCert",
+  "description": "Clears Step3SelfCert form state",
+  "actions": {
+    "resetStep3SelfCert": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step3SelfCert variable to the default state",
+      "label": "Reset Step3SelfCert variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step3SelfCert"
+        ]
+      }
+    }
+  }
+}

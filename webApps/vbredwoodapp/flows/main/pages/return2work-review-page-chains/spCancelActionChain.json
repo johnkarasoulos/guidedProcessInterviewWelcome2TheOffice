@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "variables": {
+    "detail": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  },
+  "root": "updateVariable",
+  "actions": {
+    "updateVariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cancel": {
+          "source": true,
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "navigateToMainReturn2workReview"
+      },
+      "description": "update Cancel variable",
+      "label": "update Cancel variable"
+    },
+    "navigateToMainReturn2workReview": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "target": "parent",
+        "flow": "main",
+        "page": "return2work-review",
+        "params": {
+          "currentStep": "null"
+        }
+      },
+      "@dt": {
+        "targetType": "flow"
+      }
+    }
+  }
+}

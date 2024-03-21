@@ -1,0 +1,16 @@
+{
+  "root": "resetStep6NextStepsActions",
+  "description": "Clears Step6NextStepsActions form state",
+  "actions": {
+    "resetStep6NextStepsActions": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step6NextStepsActions variable to the default state",
+      "label": "Reset Step6NextStepsActions variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step6NextStepsActions"
+        ]
+      }
+    }
+  }
+}

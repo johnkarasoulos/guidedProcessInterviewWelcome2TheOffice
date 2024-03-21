@@ -1,0 +1,145 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "e5047a7d-883d-41e2-bf24-fb809a78e82f",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "454ff00d-07cf-49a6-a3e1-795a3e86fee3",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "bd0085e6-2f48-4c12-92e8-eedd96f23a84",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "68848d6d-013a-4ae9-90fd-fb0cee418b12",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "45de703d-89dc-4a6b-a077-35c63a9e9bb0",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "74c4254c-33a9-4a66-9277-1bc3cf253f42",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "welcome",
+            "oid": "3e79723b-6735-4803-bdb2-de06d19cf26c",
+            "displayLabel": "Welcome"
+        }        ,
+        {
+            "type": "string",
+            "name": "absenceDiscussion",
+            "oid": "38f7aa78-246e-403d-9d97-6aaa25880d85",
+            "displayLabel": "Absence Discussion"
+        }        ,
+        {
+            "type": "string",
+            "name": "responsibilityForAttendanceAtW",
+            "oid": "ba59ae49-a490-4d73-a5c2-cc081cf83575",
+            "displayLabel": "Responsibility for Attendance at Work"
+        }        ,
+        {
+            "type": "string",
+            "name": "movingOn",
+            "oid": "d7b6da1a-3b82-4503-927b-47f016f1e778",
+            "displayLabel": "Moving on"
+        }        ,
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "a9be3218-e72f-4da8-b7fb-756c31785add",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step5Discussion",
+    "oid": "642fc13f-32dd-4e63-91ec-0e54d8bca35b",
+    "displayLabel": "Step5 Discussion",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step5DiscussionCollection",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

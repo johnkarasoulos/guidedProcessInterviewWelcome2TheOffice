@@ -1,0 +1,16 @@
+{
+  "root": "resetStep5Discussion",
+  "description": "Clears Step5Discussion form state",
+  "actions": {
+    "resetStep5Discussion": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step5Discussion variable to the default state",
+      "label": "Reset Step5Discussion variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step5Discussion"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "626771e5-8e65-48cf-ae8c-ee5db1eaabcb",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "d11221ff-d1b3-42dd-9213-c7cb297d9b82",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "1f4d39d9-ab5e-4b0e-9bdf-811abb445549",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "38c4ef4f-3d31-4e99-8718-03d204aadb49",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "f116b0e2-0716-44b4-8aaf-c8436af2ecc2",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "dd57986f-c406-4ecf-a5e4-e7f32e98a92b",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "nextSteps",
+            "oid": "9fe021f3-3354-443d-96ac-7c2bc187cef7",
+            "displayLabel": "nextSteps"
+        }        ,
+        {
+            "type": "string",
+            "name": "actions",
+            "oid": "3a0713d8-4cc1-46d6-89b3-aacb365b5486",
+            "displayLabel": "Actions"
+        }        ,
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "d79e445b-1ee7-46fb-b766-859c1c2bcee9",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step6NextStepsActions",
+    "oid": "9d7e1759-f38c-4a8f-9d26-08b9b58503ed",
+    "displayLabel": "Step6 Next Steps and or Actions",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step6NextStepsAndOrActionsColl",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

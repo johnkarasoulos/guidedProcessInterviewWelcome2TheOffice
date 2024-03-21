@@ -1,0 +1,151 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "89156950-2637-417f-ab65-08f94d43d220",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "21413549-1ee4-4d66-bdb5-8591cfe53110",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "5dff1f2f-21d9-45af-9062-61c8b9ea143b",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "83edd532-15b5-4983-a20a-89a0f184495b",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "8aea54be-e2c4-4a94-a776-197e49276d4f",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "9c923c7f-2e3c-4427-94a6-5732f386a26c",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "datetime",
+            "name": "myAbsenceStartedOn",
+            "oid": "f62b3c72-77a1-4478-8d97-56ed3745c70e",
+            "displayLabel": "My absence started on"
+        }        ,
+        {
+            "type": "datetime",
+            "name": "myAbsenceFinishedOn",
+            "oid": "9fe0d7b4-9d58-4e04-bc60-f0ee4270b9cb",
+            "displayLabel": "My absence finished on"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "workAccident",
+            "oid": "9fde410a-ba4f-4518-9222-2d7be8589817",
+            "displayLabel": "WorkAccident"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "wAReportingProcedure",
+            "oid": "b7ff390b-bebf-4b1c-8912-7072d2662f07",
+            "displayLabel": "WAReportingProcedure"
+        }        ,
+{
+            "type": "string",
+            "name": "reasonForYourAbsenceSickness",
+            "oid": "4fa4b8cb-67da-4a30-9023-4d737820b17f",
+            "displayLabel": "Reason for your absence/ sickness "
+        },
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "b79737a1-38d3-4939-9d70-32d77a5a8bd3",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step3SelfCert",
+    "oid": "58e93114-059c-4af1-85a2-92e62f3da680",
+    "displayLabel": "Step3 Self Cert",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step3SelfCertCollection",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

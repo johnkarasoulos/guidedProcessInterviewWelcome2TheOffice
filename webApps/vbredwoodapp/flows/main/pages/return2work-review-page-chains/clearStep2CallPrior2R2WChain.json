@@ -1,0 +1,16 @@
+{
+  "root": "resetStep2CallPrior2R2W",
+  "description": "Clears Step2CallPrior2R2W form state",
+  "actions": {
+    "resetStep2CallPrior2R2W": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step2CallPrior2R2W variable to the default state",
+      "label": "Reset Step2CallPrior2R2W variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step2CallPrior2R2W"
+        ]
+      }
+    }
+  }
+}

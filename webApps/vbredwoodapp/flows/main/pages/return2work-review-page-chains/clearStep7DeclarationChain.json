@@ -1,0 +1,16 @@
+{
+  "root": "resetStep7Declaration",
+  "description": "Clears Step7Declaration form state",
+  "actions": {
+    "resetStep7Declaration": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step7Declaration variable to the default state",
+      "label": "Reset Step7Declaration variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step7Declaration"
+        ]
+      }
+    }
+  }
+}

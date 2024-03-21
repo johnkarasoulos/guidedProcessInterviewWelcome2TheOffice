@@ -1,0 +1,101 @@
+{
+  "description": "",
+  "root": "callChainCreateStep1TheCallChain",
+  "actions": {
+    "callChainCreateStep1TheCallChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep1TheCallChain",
+        "params": {
+          "step1TheCall": "{{ $page.variables.step1TheCall }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep2CallPrior2R2WChain"
+      }
+    },
+    "callChainCreateStep2CallPrior2R2WChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep2CallPrior2R2WChain",
+        "params": {
+          "step2CallPrior2R2W": "{{ $page.variables.step2CallPrior2R2W }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep3SelfCertChain"
+      }
+    },
+    "callChainCreateStep3SelfCertChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep3SelfCertChain",
+        "params": {
+          "step3SelfCert": "{{ $page.variables.step3SelfCert }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep4Prep4R2WReviewChain"
+      }
+    },
+    "callChainCreateStep4Prep4R2WReviewChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep4Prep4R2WReviewChain",
+        "params": {
+          "step4Prep4R2WReview": "{{ $page.variables.step4Prep4R2WReview }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep5DiscussionChain"
+      }
+    },
+    "callChainCreateStep5DiscussionChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep5DiscussionChain",
+        "params": {
+          "step5Discussion": "{{ $page.variables.step5Discussion }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep6NextStepsActionsChain"
+      }
+    },
+    "callChainCreateStep6NextStepsActionsChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep6NextStepsActionsChain",
+        "params": {
+          "step6NextStepsActions": "{{ $page.variables.step6NextStepsActions }}"
+        }
+      },
+      "outcomes": {
+        "success": "callChainCreateStep7DeclarationChain"
+      }
+    },
+    "callChainCreateStep7DeclarationChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "createStep7DeclarationChain",
+        "params": {
+          "step7Declaration": "{{ $page.variables.step7Declaration }}"
+        }
+      },
+      "outcomes": {
+        "success": "navigateToReturn2workReview"
+      }
+    },
+    "navigateToReturn2workReview": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "return2work-review",
+        "params": {
+          "currentStep": "null"
+        },
+        "history": "replace"
+      }
+    }
+  },
+  "variables": {}
+}

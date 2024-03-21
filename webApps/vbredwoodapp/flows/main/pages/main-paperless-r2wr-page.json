@@ -1,0 +1,189 @@
+{
+  "title": "Return to Work Review",
+  "description": "",
+  "variables": {
+    "avatar": {
+      "type": {
+        "initials": "string",
+        "src": "string"
+      },
+      "defaultValue": {
+        "initials": "",
+        "src": ""
+      }
+    },
+    "contextualInfoLabelVisible": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "contextualInfoSticky": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createReturn2WorkReviewsChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "dirtyDataFlag": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "displayMode": {
+      "type": "string"
+    },
+    "formState": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "goToParentOption": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "isSaved": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "objectId": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "primaryAlwaysOn": {
+      "type": "boolean",
+      "defaultValue": true
+    },
+    "return2WorkReviews": {
+      "type": "createReturn2WorkReviewsRequest"
+    },
+    "saveOption": {
+      "type": "string",
+      "defaultValue": "off"
+    },
+    "step0": {
+      "type": "string",
+      "defaultValue": "Step0",
+      "persisted": "session"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.createReturn2WorkReviewsRequest": {
+      "endpoint": "create_Return2WorkReviews",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "businessObjectsServiceErrorResponseType": {
+      "body": {
+        "status": "string",
+        "title": "string",
+        "o:errorDetails": [
+          {
+            "detail": "string",
+            "o:errorCode": "string"
+          }
+        ]
+      },
+      "status": "number"
+    },
+    "createReturn2WorkReviewsRequest": {
+      "colleagueName": "string",
+      "colleaguePosition": "string",
+      "id": "number"
+    }
+  },
+  "eventListeners": {
+    "confirmNoOjAction": {
+      "chains": [
+        {
+          "chainId": "dialogResponseChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}",
+            "response": "NO"
+          }
+        }
+      ]
+    },
+    "confirmYesOjAction": {
+      "chains": [
+        {
+          "chainId": "dialogResponseChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}",
+            "response": "YES"
+          }
+        }
+      ]
+    },
+    "ojSpCancel": {
+      "chains": [
+        {
+          "chainId": "spCancelChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "ojSpGoToParent": {
+      "chains": [
+        {
+          "chainId": "goToParent",
+          "parameters": {}
+        }
+      ]
+    },
+    "ojSpSave": {
+      "chains": [
+        {
+          "chainId": "spSaveChain"
+        }
+      ]
+    },
+    "ojSpSubmit": {
+      "chains": [
+        {
+          "chainId": "spSubmitChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "saveButtonClicked": {
+      "chains": [
+        {
+          "chainId": "createReturn2WorkReviewsChain"
+        }
+      ]
+    },
+    "vbBeforeExit": {
+      "chains": [
+        {
+          "chainId": "checkBeforeExit",
+          "parameters": {}
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-sp-message-unsaved-changes": {
+        "path": "oj-sp/message-unsaved-changes/loader"
+      },
+      "oj-sp-simple-create-edit": {
+        "path": "oj-sp/simple-create-edit/loader"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+    }
+  },
+  "@dt": {
+    "iconClass": "vbdt-dynamic-icon-71-icoSimpleCreateAndEdit48Svg"
+  }
+}

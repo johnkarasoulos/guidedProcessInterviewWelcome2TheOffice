@@ -1,0 +1,390 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cancel": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep1TheCallChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep2CallPrior2R2WChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep3SelfCertChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep4Prep4R2WReviewChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep5DiscussionChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep6NextStepsActionsChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "createStep7DeclarationChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "currentStep": {
+      "type": "string",
+      "defaultValue": "null",
+      "input": "fromUrl"
+    },
+    "dirtyDataFlag": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "step1TheCall": {
+      "type": "createStep1TheCallRequest"
+    },
+    "step2CallPrior2R2W": {
+      "type": "createStep2CallPrior2R2WRequest"
+    },
+    "step3SelfCert": {
+      "type": "createStep3SelfCertRequest"
+    },
+    "step4Prep4R2WReview": {
+      "type": "createStep4Prep4R2WReviewRequest"
+    },
+    "step5Discussion": {
+      "type": "createStep5DiscussionRequest"
+    },
+    "step6NextStepsActions": {
+      "type": "createStep6NextStepsActionsRequest"
+    },
+    "step7Declaration": {
+      "type": "createStep7DeclarationRequest"
+    },
+    "steps": {
+      "type": "step[]",
+      "defaultValue": [
+        {
+          "id": "Step1",
+          "title": "Contact with employee",
+          "description": "These contacts are important to understand employee condition"
+        },
+        {
+          "id": "Step2",
+          "title": "Contact before return to office",
+          "description": "Contact on day before return to the office"
+        },
+        {
+          "id": "Step3",
+          "title": "Reasons",
+          "description": "Justification of the employee condition"
+        },
+        {
+          "id": "Step4",
+          "title": "Preparation",
+          "description": "Preparation of the meeting"
+        },
+        {
+          "id": "Step5",
+          "title": "Discussion",
+          "description": "Run the questionnaire"
+        },
+        {
+          "id": "Step6",
+          "title": "Next steps and or actions"
+        },
+        {
+          "id": "Step7",
+          "title": "Declaration",
+          "description": "I confirm that this record is a true account of the points discussed."
+        }
+      ]
+    },
+    "valid": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.createStep1TheCallRequest": {
+      "endpoint": "create_Step1TheCall",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep2CallPrior2R2WRequest": {
+      "endpoint": "create_Step2CallPrior2R2W",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep3SelfCertRequest": {
+      "endpoint": "create_Step3SelfCert",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep4Prep4R2WReviewRequest": {
+      "endpoint": "create_Step4Prep4R2WReview",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep5DiscussionRequest": {
+      "endpoint": "create_Step5Discussion",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep6NextStepsActionsRequest": {
+      "endpoint": "create_Step6NextStepsActions",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "@decorators.createStep7DeclarationRequest": {
+      "endpoint": "create_Step7Declaration",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "businessObjectsServiceErrorResponseType": {
+      "body": {
+        "status": "string",
+        "title": "string",
+        "o:errorDetails": [
+          {
+            "detail": "string",
+            "o:errorCode": "string"
+          }
+        ]
+      },
+      "status": "number"
+    },
+    "createStep1TheCallRequest": {
+      "absenceReportedBy": "string",
+      "absenceReportedOn": "string",
+      "absenceReportedTo": "string",
+      "expectedDateOfReturn": "string",
+      "note": "string",
+      "reasonableAdjustments": "string",
+      "reasonForAbsence": "string",
+      "returnEarlier": "boolean"
+    },
+    "createStep2CallPrior2R2WRequest": {
+      "callDayBefore": "string"
+    },
+    "createStep3SelfCertRequest": {
+      "myAbsenceFinishedOn": "string",
+      "myAbsenceStartedOn": "string",
+      "reasonForYourAbsenceSickness": "string",
+      "wAReportingProcedure": "boolean",
+      "workAccident": "boolean"
+    },
+    "createStep4Prep4R2WReviewRequest": {
+      "absencePercentage": "number",
+      "adheredToTheReportingProcedure": "boolean",
+      "currentlyOnAbsenceWarning": "boolean",
+      "currentlyOnRecordOfImprovement": "boolean",
+      "hitAtrigger": "boolean",
+      "learnedDuringAbsence": "string",
+      "monthsAbsence": "number",
+      "periodOfAbsenceStart": "string",
+      "periodOfAbsenceUntil": "string",
+      "reasonToAdhered": "string",
+      "selfCertOrValidFitNote": "string",
+      "selfCertOrValidFitNoteProvided": "boolean"
+    },
+    "createStep5DiscussionRequest": {
+      "absenceDiscussion": "string",
+      "movingOn": "string",
+      "responsibilityForAttendanceAtW": "string",
+      "welcome": "string"
+    },
+    "createStep6NextStepsActionsRequest": {
+      "nextSteps": "string"
+    },
+    "createStep7DeclarationRequest": {
+      "colleagueSignature": "string",
+      "colleagueSignatureDate": "string",
+      "managerPrintedName": "string",
+      "managerSignature": "string",
+      "managerSignatureDate": "string"
+    },
+    "step": {
+      "id": "string",
+      "title": "string",
+      "description": "string",
+      "display": "string",
+      "status": "string",
+      "timestamp": "string",
+      "optional": "boolean"
+    }
+
+  },
+  "eventListeners": {
+    "guidedProcessPageTemplateSpPrimaryAction": {
+      "chains": [
+        {
+          "chainId": "SubmitDeclaration"
+        }
+      ]
+    },
+    "onConfirmNoOjAction": {
+      "chains": [
+        {
+          "chainId": "dialogResponseActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}",
+            "response": "NO"
+          }
+        }
+      ]
+    },
+    "onConfirmYesOjAction": {
+      "chains": [
+        {
+          "chainId": "dialogResponseActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}",
+            "response": "YES"
+          }
+        }
+      ]
+    },
+    "onSpBeforeStepNavigate": {
+      "preventDefault": "true",
+      "chains": [
+        {
+          "chainId": "spBeforeStepNavigate",
+          "parameters": {
+            "event": "{{ $event }}"
+          }
+        }
+      ]
+    },
+    "onSpCancel": {
+      "chains": [
+        {
+          "chainId": "spCancelActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "saveButtonClicked": {
+      "chains": [
+        {
+          "chainId": "createStep1TheCallChain"
+        }
+      ]
+    },
+    "saveButtonClicked2": {
+      "chains": [
+        {
+          "chainId": "createStep2CallPrior2R2WChain"
+        }
+      ]
+    },
+    "saveButtonClicked3": {
+      "chains": [
+        {
+          "chainId": "createStep3SelfCertChain"
+        }
+      ]
+    },
+    "saveButtonClicked4": {
+      "chains": [
+        {
+          "chainId": "createStep4Prep4R2WReviewChain"
+        }
+      ]
+    },
+    "saveButtonClicked5": {
+      "chains": [
+        {
+          "chainId": "createStep5DiscussionChain"
+        }
+      ]
+    },
+    "saveButtonClicked6": {
+      "chains": [
+        {
+          "chainId": "createStep6NextStepsActionsChain"
+        }
+      ]
+    },
+    "saveButtonClicked7": {
+      "chains": [
+        {
+          "chainId": "createStep7DeclarationChain"
+        }
+      ]
+    },
+    "vbBeforeExit": {
+      "chains": [
+        {
+          "chainId": "checkBeforeExitActionChain",
+          "parameters": {}
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chainId": "firePageLayoutEventActionChain"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-date-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-sp-guided-process": {
+        "path": "oj-sp/guided-process/loader"
+      },
+      "oj-sp-input-rich-text-2": {
+        "path": "oj-sp/input-rich-text-2/loader"
+      },
+      "oj-sp-message-unsaved-changes": {
+        "path": "oj-sp/message-unsaved-changes/loader"
+      },
+      "oj-switch": {
+        "path": "ojs/ojswitch"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  },
+  "@dt": {
+    "iconClass": "vbdt-dynamic-icon-8-icoPageTemplateSvg"
+  },
+  "security": {
+    "access": {
+      "requiresAuthentication": false
+    }
+  }
+}

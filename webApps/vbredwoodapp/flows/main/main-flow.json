@@ -1,0 +1,15 @@
+{
+
+  "id": "main",
+  "description": "Flow main",
+  "defaultPage": "return2work-review",
+  "chains": {},
+  "services": {},
+  "types": {},
+  "variables": {},
+  "security": {
+    "access": {
+      "requiresAuthentication": false
+    }
+  }
+}

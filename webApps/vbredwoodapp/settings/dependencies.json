@@ -1,0 +1,20 @@
+{
+  "component-dependencies": {
+    "oj-sp": {
+      "version": "2310.0.1",
+      "components": {
+        "guided-process": "2310.0.1",
+        "message-unsaved-changes": "2310.0.1",
+        "input-rich-text-2": "2310.0.1",
+        "horizontal-overview": "2310.0.1",
+        "simple-create-edit": "2310.0.1"
+      }
+    },
+    "oj-dynamic": {
+      "version": "14.1.2",
+      "components": {
+        "form": "14.1.2"
+      }
+    }
+  }
+ }

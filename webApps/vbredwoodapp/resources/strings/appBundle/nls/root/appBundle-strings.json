@@ -1,0 +1,10 @@
+{
+    "sample_page_title": "Welcome Redwood Application",
+    "@sample_page_title": {
+        "description": "Sample Page Title"
+    },
+    "sample_page_description": "\"This is a sample page\"",
+    "@sample_page_description": {
+        "description": "Sample Page Description"
+    }
+   }

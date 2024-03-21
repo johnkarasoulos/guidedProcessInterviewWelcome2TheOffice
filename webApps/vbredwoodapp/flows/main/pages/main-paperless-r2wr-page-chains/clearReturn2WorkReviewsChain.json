@@ -1,0 +1,16 @@
+{
+  "root": "resetReturn2WorkReviews",
+  "description": "Clears Return2WorkReviews form state",
+  "actions": {
+    "resetReturn2WorkReviews": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets return2WorkReviews variable to the default state",
+      "label": "Reset Return2WorkReviews variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.return2WorkReviews"
+        ]
+      }
+    }
+  }
+}

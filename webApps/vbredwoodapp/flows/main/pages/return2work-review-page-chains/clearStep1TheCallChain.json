@@ -1,0 +1,16 @@
+{
+  "root": "resetStep1TheCall",
+  "description": "Clears Step1TheCall form state",
+  "actions": {
+    "resetStep1TheCall": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step1TheCall variable to the default state",
+      "label": "Reset Step1TheCall variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step1TheCall"
+        ]
+      }
+    }
+  }
+}

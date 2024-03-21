@@ -1,0 +1,142 @@
+{
+  "variables": {
+    "step5Discussion": {
+      "type": "createStep5DiscussionRequest",
+      "input": "fromCaller",
+      "defaultValue": "[[ $page.variables.step5Discussion ]]"
+    },
+    "saveFailureResult": {
+      "type": "businessObjectsServiceErrorResponseType"
+    },
+    "errorMessage": {
+      "type": "string"
+    }
+  },
+  "root": "markCreateStarted",
+  "actions": {
+    "markCreateStarted": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.createStep5DiscussionChainInProgress": {
+          "source": true
+        }
+      },
+      "outcomes": {
+        "success": "markCreateEnded"
+      },
+      "description": "Sets the progress variable to true",
+      "label": "Mark Create in progress"
+    },
+    "fireSuccessNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Step5Discussion saved",
+        "message": "Step5Discussion record successfully created",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "callResetStep5DiscussionChain"
+      },
+      "description": "Fires a notification event about successful save",
+      "label": "Fire save success event"
+    },
+    "assignFailureResult": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$variables.saveFailureResult": {
+          "source": "[[ $chain.results.saveStep5Discussion ]]"
+        }
+      },
+      "outcomes": {
+        "success": "testFailureDetails"
+      },
+      "description": "Assigns REST call failure result to a local variable",
+      "label": "Assign failure result"
+    },
+    "testFailureDetails": {
+      "module": "vb/action/builtin/ifAction",
+      "outcomes": {
+        "true": "handleDetailedErrorMessage",
+        "false": "handleDefaultErrorMessage"
+      },
+      "parameters": {
+        "condition": "[[ $variables.saveFailureResult.body['o:errorDetails'][0] ]]"
+      },
+      "description": "Tests if the REST call failure output contains error detail message",
+      "label": "Test failure details"
+    },
+    "handleDetailedErrorMessage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "outcomes": {
+        "success": "fireErrorNotification"
+      },
+      "parameters": {
+        "$variables.errorMessage": {
+          "source": "[[ $variables.saveFailureResult.body['o:errorDetails'][0].detail ]]"
+        }
+      },
+      "description": "Extracts detail error message from the REST call failure result",
+      "label": "Assign detailed error message"
+    },
+    "handleDefaultErrorMessage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "outcomes": {
+        "success": "fireErrorNotification"
+      },
+      "parameters": {
+        "$variables.errorMessage": {
+          "source": "[[ 'Could not create new Step5Discussion: status ' + $variables.saveFailureResult.status ]]"
+        }
+      },
+      "description": "Builds default error message",
+      "label": "Assign default error message"
+    },
+    "fireErrorNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Save failed",
+        "message": "[[ $variables.errorMessage ]]",
+        "type": "error",
+        "displayMode": "persist"
+      },
+      "description": "Fires a notification event about failed save",
+      "label": "Fire save failed event"
+    },
+    "callResetStep5DiscussionChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "clearStep5DiscussionChain"
+      },
+      "description": "Resets Step5Discussion form state to its default state",
+      "label": "Reset Step5Discussion form state"
+    },
+    "saveStep5Discussion": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/create_Step5Discussion",
+        "body": "[[ $variables.step5Discussion ]]"
+      },
+      "description": "Call REST creating new Step5Discussion record",
+      "label": "Save Step5Discussion record",
+      "outcomes": {
+        "success": "fireSuccessNotification",
+        "failure": "assignFailureResult"
+      }
+    },
+    "markCreateEnded": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.createStep5DiscussionChainInProgress": {
+          "source": false
+        }
+      },
+      "description": "Sets the progress variable to false",
+      "label": "Mark Create done",
+      "outcomes": {
+        "success": "saveStep5Discussion"
+      }
+    }
+  },
+  "description": "Saves changes and creates new Step5Discussion record."
+}

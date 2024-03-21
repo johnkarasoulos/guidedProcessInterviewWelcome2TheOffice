@@ -1,0 +1,151 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "fe6c1239-e198-462d-8172-6055a55ac62a",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "52e3dfd6-50f0-4bd4-9bea-d70fc63ed4b8",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "75a5a90d-74d5-4c0f-b145-cedbcf32ebbc",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "e1e9dc97-1fd5-45bb-808a-8b0cb82bb66b",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "e8c76c93-3b34-48e6-9afd-78989cd358b0",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "706fa990-5e5d-4f8f-9495-b39580f2025a",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "colleagueSignature",
+            "oid": "ca94ab58-97fe-4949-8784-6e328062453b",
+            "displayLabel": "Colleague Signature"
+        }        ,
+        {
+            "type": "date",
+            "name": "colleagueSignatureDate",
+            "oid": "4db1628a-a828-4189-9e7e-d86c22098374",
+            "displayLabel": "Colleague Signature Date"
+        }        ,
+        {
+            "type": "string",
+            "name": "managerSignature",
+            "oid": "fee73ac7-5a49-4b83-a5f6-4e363abfd328",
+            "displayLabel": "Manager’s Signature"
+        }        ,
+        {
+            "type": "date",
+            "name": "managerSignatureDate",
+            "oid": "7c2117b4-602d-4729-8839-1019f0359fc8",
+            "displayLabel": "Manager’s Signature Date"
+        }        ,
+        {
+            "type": "string",
+            "name": "managerPrintedName",
+            "oid": "dda08600-55e7-4018-977b-3e9482e871cd",
+            "displayLabel": "Manager’s Printed Name"
+        }        ,
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "584cc882-9105-4d94-9096-1c5e1d744cc5",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step7Declaration",
+    "oid": "3c2d303a-7028-4882-b5c1-97228809aa64",
+    "displayLabel": "Step7 Declaration",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step7DeclarationCollection",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

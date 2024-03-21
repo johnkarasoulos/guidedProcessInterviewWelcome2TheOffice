@@ -1,0 +1,142 @@
+{
+  "variables": {
+    "step1TheCall": {
+      "type": "createStep1TheCallRequest",
+      "input": "fromCaller",
+      "defaultValue": "[[ $page.variables.step1TheCall ]]"
+    },
+    "saveFailureResult": {
+      "type": "businessObjectsServiceErrorResponseType"
+    },
+    "errorMessage": {
+      "type": "string"
+    }
+  },
+  "root": "markCreateStarted",
+  "actions": {
+    "markCreateStarted": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.createStep1TheCallChainInProgress": {
+          "source": true
+        }
+      },
+      "outcomes": {
+        "success": "markCreateEnded"
+      },
+      "description": "Sets the progress variable to true",
+      "label": "Mark Create in progress"
+    },
+    "fireSuccessNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Step1TheCall saved",
+        "message": "Step1TheCall record successfully created",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "callResetStep1TheCallChain"
+      },
+      "description": "Fires a notification event about successful save",
+      "label": "Fire save success event"
+    },
+    "assignFailureResult": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$variables.saveFailureResult": {
+          "source": "[[ $chain.results.saveStep1TheCall ]]"
+        }
+      },
+      "outcomes": {
+        "success": "testFailureDetails"
+      },
+      "description": "Assigns REST call failure result to a local variable",
+      "label": "Assign failure result"
+    },
+    "testFailureDetails": {
+      "module": "vb/action/builtin/ifAction",
+      "outcomes": {
+        "true": "handleDetailedErrorMessage",
+        "false": "handleDefaultErrorMessage"
+      },
+      "parameters": {
+        "condition": "[[ $variables.saveFailureResult.body['o:errorDetails'][0] ]]"
+      },
+      "description": "Tests if the REST call failure output contains error detail message",
+      "label": "Test failure details"
+    },
+    "handleDetailedErrorMessage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "outcomes": {
+        "success": "fireErrorNotification"
+      },
+      "parameters": {
+        "$variables.errorMessage": {
+          "source": "[[ $variables.saveFailureResult.body['o:errorDetails'][0].detail ]]"
+        }
+      },
+      "description": "Extracts detail error message from the REST call failure result",
+      "label": "Assign detailed error message"
+    },
+    "handleDefaultErrorMessage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "outcomes": {
+        "success": "fireErrorNotification"
+      },
+      "parameters": {
+        "$variables.errorMessage": {
+          "source": "[[ 'Could not create new Step1TheCall: status ' + $variables.saveFailureResult.status ]]"
+        }
+      },
+      "description": "Builds default error message",
+      "label": "Assign default error message"
+    },
+    "fireErrorNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Save failed",
+        "message": "[[ $variables.errorMessage ]]",
+        "type": "error",
+        "displayMode": "persist"
+      },
+      "description": "Fires a notification event about failed save",
+      "label": "Fire save failed event"
+    },
+    "callResetStep1TheCallChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "clearStep1TheCallChain"
+      },
+      "description": "Resets Step1TheCall form state to its default state",
+      "label": "Reset Step1TheCall form state"
+    },
+    "saveStep1TheCall": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/create_Step1TheCall",
+        "body": "[[ $variables.step1TheCall ]]"
+      },
+      "description": "Call REST creating new Step1TheCall record",
+      "label": "Save Step1TheCall record",
+      "outcomes": {
+        "success": "fireSuccessNotification",
+        "failure": "assignFailureResult"
+      }
+    },
+    "markCreateEnded": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.createStep1TheCallChainInProgress": {
+          "source": false
+        }
+      },
+      "description": "Sets the progress variable to false",
+      "label": "Mark Create done",
+      "outcomes": {
+        "success": "saveStep1TheCall"
+      }
+    }
+  },
+  "description": "Saves changes and creates new Step1TheCall record."
+}

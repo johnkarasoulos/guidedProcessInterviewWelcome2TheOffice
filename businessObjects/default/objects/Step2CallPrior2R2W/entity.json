@@ -1,0 +1,133 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "c2993064-eb01-4df5-ba4a-cbecef3789e1",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "ae93abda-a12d-4aeb-9d7c-b11f4f799553",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "4e019eeb-331b-4921-a7da-ea99d03887d0",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "58dc5565-5fe4-4b85-a8a5-9c1498a7ee5d",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "e906793c-0c12-4867-9b55-60d670c38409",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "b6f7ba04-30e8-4e15-b41e-2e2b2eb8fb29",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+{
+            "type": "string",
+            "defaultValue": {
+                "server": {
+                    "type": "static",
+                    "value": "It’s really important that we call all our colleagues who have been absent the day before their expected return to work to understand their current condition and whether or not they are safe to return to the workplace."
+                }
+            },
+            "name": "callDayBefore",
+            "oid": "5a33ab9f-afe6-4b6f-b263-5629aa68bb13",
+            "displayLabel": "CallDayBefore"
+        },
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "fe84cbe2-0fc1-409c-9536-6614d4153e62",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step2CallPrior2R2W",
+    "oid": "f04668fe-c3cb-443b-bde7-087bcd8f68a6",
+    "displayLabel": "Step2 Call Prior to Return to Work",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step2CallPriorToReturnToWorkCo",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

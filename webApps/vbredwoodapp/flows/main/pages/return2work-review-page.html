@@ -1,0 +1,153 @@
+<!-- vb default-layout:block -->
+<oj-sp-guided-process process-title="Guided process" current-step="{{$page.variables.currentStep}}"
+  display-options.responsive-padding="on" on-sp-before-step-navigate="[[$listeners.onSpBeforeStepNavigate]]"
+  on-sp-cancel="[[$listeners.onSpCancel]]" primary-action.label="Declaration"
+  process-subtitle="Complete every step of the process" steps="[[ $variables.steps ]]" draggable="auto"
+  on-sp-primary-action="[[$listeners.guidedProcessPageTemplateSpPrimaryAction]]">
+  <oj-validation-group id="validationGroup" valid="{{ $page.variables.valid }}">
+    <oj-bind-if test='[[ $variables.currentStep === "Step1"]]'>
+        <div>
+        <!-- default slot -->
+        <oj-validation-group id="step1TheCall-validation-group-385431151-1">
+        <oj-form-layout id="oj-form-layout-385431151-1" class="oj-formlayout-full-width">
+        <oj-input-text value="{{ $variables.step1TheCall.absenceReportedTo }}" label-hint="Absence reported to"
+          virtual-keyboard="text" id="Step1Absencereportedto" class="oj-form-control-full-width"></oj-input-text>
+        <oj-input-date-time label-hint="Absence reported on" class="oj-form-control-full-width"
+          id="Step1Absencereportedon" value="{{ $variables.step1TheCall.absenceReportedOn }}"></oj-input-date-time>
+        <oj-input-text value="{{ $variables.step1TheCall.absenceReportedBy }}" label-hint="Absence reported by"
+          class="oj-form-control-full-width" id="Step1Absencereportedby"></oj-input-text>
+        <oj-sp-input-rich-text-2 label-hint="Reason for absence" value="{{ $variables.step1TheCall.reasonForAbsence }}"
+          mentions="[[ $variables.step1TheCall.reasonForAbsence ]]" id="Step1ReasonForAbsence"></oj-sp-input-rich-text-2>
+        <oj-input-date value="{{ $variables.step1TheCall.expectedDateOfReturn }}"
+          label-hint="Expected date of return" id="Step1Expecteddateofreturn" class="oj-form-control-full-width"></oj-input-date>
+        <oj-switch value="{{ $variables.step1TheCall.returnEarlier }}" label-hint="Can return earlier"
+          id="step1RetrunEarlier1" display-options.converter-hint="adjustments"
+          help.instruction="reasonable adjustments are made?" class="oj-switch"></oj-switch>
+        <oj-input-text value="{{ $variables.step1TheCall.reasonableAdjustments }}" id="Step1reasonableadjustments"
+          label-hint="What might these be" class="oj-form-control-full-width"></oj-input-text>
+        <oj-sp-input-rich-text-2
+          label-hint="Notes:"
+          value="{{ $variables.step1TheCall.note }}" id="Step1Notes"></oj-sp-input-rich-text-2>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step2" ]]'>
+        <div>
+        <!-- default slot -->
+        <oj-validation-group id="step2CallPrior2R2W-validation-group-385431151-1">
+        <oj-form-layout id="oj-form-layout-385431151-2" class="oj-formlayout-full-width">
+        <oj-sp-input-rich-text-2 label-hint="Notes"
+          value="{{ $variables.step2CallPrior2R2W.callDayBefore }}"></oj-sp-input-rich-text-2>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step3"]]'>
+        <div>
+        <oj-validation-group id="step3SelfCert-validation-group-385431151-1">
+        <oj-form-layout id="oj-form-layout-385431151-3" class="oj-formlayout-full-width">
+        <oj-input-date-time label-hint="My absence started on" id="Step3Myabsencestartedon"></oj-input-date-time>
+        <oj-input-date-time label-hint="My absence finished on" id="Step3Myabsencefinishedon"></oj-input-date-time>
+        <oj-switch value="{{ $variables.step3SelfCert.workAccident }}"
+          label-hint="Work incident?" id="Step3WorkAccident"></oj-switch>
+        <oj-switch value="{{ $variables.step3SelfCert.wAReportingProcedure }}"
+          label-hint="Accident has been officially reported?"
+          id="Step3eportingProcedure"></oj-switch>
+        <oj-input-text value="{{ $variables.step3SelfCert.reasonForYourAbsenceSickness }}"
+          label-hint="Other reason" id="Step3ReasonforAbsence"
+          class="oj-form-control-full-width"></oj-input-text>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step4"]]'>
+        <div>
+        <oj-validation-group id="step4Prep4R2WReview-validation-group-385431151-1" draggable="auto">
+        <oj-form-layout id="oj-form-layout-385431151-4" colspan-wrap="nowrap" class="oj-flex oj-formlayout-full-width">
+        <oj-switch value="{{ $variables.step4Prep4R2WReview.hitAtrigger }}"
+          label-hint="Prior notification?" id="Step4HitATrigger" class="oj-switch"
+          help.instruction="(Refer to short term sickness section of guide for information and how to calculate)."></oj-switch>
+        <oj-input-date value="{{ $variables.step4Prep4R2WReview.periodOfAbsenceStart }}" id="Step4PeriodofabsenceStart"
+          label-hint="Period of absence from: "></oj-input-date>
+        <oj-input-date value="{{ $variables.step4Prep4R2WReview.periodOfAbsenceUntil }}"
+          label-hint="Period of absence until: " id="Step4Periodofabsenceuntil"></oj-input-date>
+        <oj-label id="Step4Absencehistory">History:<div class="oj-flex-bar oj-sm-align-items-center">
+        <oj-input-number value="{{ $variables.step4Prep4R2WReview.absencePercentage }}" label-hint="Absence Percentage"
+          class="oj-flex-bar-start oj-form-control-max-width-sm oj-form-control-width-sm" id="Step4absencePercentage"
+          converter='{"options":{"style":"percent","minimumIntegerDigits":2,"minimumFractionDigits":2,"maximumFractionDigits":2,"useGrouping":false},"type":"number"}'></oj-input-number>
+        <div class="oj-flex-item oj-sm-flex-initial"></div>
+        <oj-input-number value="{{ $variables.step4Prep4R2WReview.monthsAbsence }}" label-hint="monthsAbsence"
+          class="oj-flex-bar-end oj-form-control-max-width-sm oj-form-control-width-sm" slot="end"
+          virtual-keyboard="number"
+          converter='{"options":{"minimumIntegerDigits":2,"minimumFractionDigits":0,"useGrouping":false},"type":"number"}'></oj-input-number>
+        <div class="oj-flex-item oj-sm-flex-initial"></div>
+        <oj-label class="oj-flex-item oj-sm-flex-initial oj-sm-align-self-center"> in a rolling 12 month period or occasions in a rolling 6 months.</oj-label>
+        </div>
+        </oj-label>
+        <oj-switch value="{{ $variables.step4Prep4R2WReview.currentlyOnAbsenceWarning }}"
+          label-hint="Repeated absence" class="oj-switch" id="Step4Currentlyonabsencewarning"></oj-switch>
+        <oj-switch value="{{ $variables.step4Prep4R2WReview.currentlyOnRecordOfImprovement }}"
+          label-hint="Is there any improvement" id="Step4RecordOffImprovement" class="oj-switch"></oj-switch>
+        <oj-input-text value="{{ $variables.step4Prep4R2WReview.selfCertOrValidFitNote }}"
+          label-hint="Reason"
+          class="oj-form-control-full-width"></oj-input-text>
+        <oj-switch value="{{ $variables.step4Prep4R2WReview.adheredToTheReportingProcedure }}"
+          label-hint="Followed the reporting procedure"></oj-switch>
+        <oj-input-text label-hint="Other information:"
+          value="{{ $variables.step4Prep4R2WReview.learnedDuringAbsence }}"></oj-input-text>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step5"]]'>
+        <div>
+        <oj-validation-group>
+        <oj-form-layout id="oj-form-layout-385431151-5" class="oj-formlayout-full-width">
+        <oj-sp-input-rich-text-2 label-hint="Welcome" value="{{ $variables.step5Discussion.welcome }}" id="Step5Welcome"
+          title="Welcome"
+          messages-custom='[{"severity":"info","detail":"Welcome the colleague back to work","summary":"Welcome the colleague back to work."}]'></oj-sp-input-rich-text-2>
+        <div class="oj-divider-top"></div>
+        <oj-sp-input-rich-text-2 label-hint="Discussion " value="{{ $variables.step5Discussion.absenceDiscussion }}"
+          id="Step5AbsenceDiscussion"></oj-sp-input-rich-text-2>
+        <div class="oj-divider-top"></div>
+        <oj-sp-input-rich-text-2 label-hint="Responsible" value="{{ $variables.step5Discussion.absenceDiscussion }}"
+          id="Step5Responsability"></oj-sp-input-rich-text-2>
+        <div class="oj-divider-top"></div>
+        <oj-sp-input-rich-text-2 label-hint="Moving on" value="{{ $variables.step5Discussion.movingOn }}"
+          id="Step5MovingOn"></oj-sp-input-rich-text-2>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step6"]]'>
+        <div>
+        <oj-validation-group>
+        <oj-form-layout id="oj-form-layout-385431151-6" class="oj-formlayout-full-width">
+        <oj-sp-input-rich-text-2 label-hint="Next Steps"
+          value="{{ $variables.step6NextStepsActions.nextSteps }}" id="Step6NextStepsActions"></oj-sp-input-rich-text-2>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.currentStep === "Step7"]]'>
+        <div>
+        <oj-validation-group>
+        <oj-form-layout id="oj-form-layout-385431151-7" class="oj-formlayout-full-width">
+        <oj-input-text value="{{ $variables.step7Declaration.colleagueSignature }}" label-hint="Employee Signature"></oj-input-text>
+        <oj-input-date value="{{ $variables.step7Declaration.colleagueSignatureDate }}"
+          label-hint="Employee Signature Date"></oj-input-date>
+        <oj-input-text value="{{ $variables.step7Declaration.managerSignature }}" label-hint="Manager’s Signature"></oj-input-text>
+        <oj-input-date value="{{ $variables.step7Declaration.managerSignatureDate }}"
+          label-hint="Manager’s Signature Date"></oj-input-date>
+        <oj-input-text value="{{ $variables.step7Declaration.managerPrintedName }}" label-hint="Manager’s Printed Name"></oj-input-text>
+        </oj-form-layout>
+        </oj-validation-group>
+        </div>
+    </oj-bind-if>
+  </oj-validation-group>
+</oj-sp-guided-process>
+<oj-sp-message-unsaved-changes id="dirtyDataWarningDialog"
+  on-oj-sp-discard-changes="[[ $listeners.onConfirmYesOjAction ]]"
+  on-oj-sp-cancel="[[ $listeners.onConfirmNoOjAction ]]" open-dialog="true" display="save">
+</oj-sp-message-unsaved-changes>

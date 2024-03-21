@@ -1,0 +1,170 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "4f73309e-16ba-4f09-be8b-e94843dd43e3",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "19b8e4a6-d48e-4e2f-9503-c3635972e060",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "ee17b7f4-e31b-4365-a957-3b443270a738",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "4cfeae5a-8cf0-4f24-8309-b7bc63355f29",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "d22e06fc-c064-41b5-a2f0-d278502283e5",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "9ade2ad0-6de5-4382-b20d-2aeb35ffc1f2",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber",
+            "indexed": true
+        },
+        {
+            "type": "string",
+            "name": "colleagueName",
+            "oid": "8f8acb57-deb7-4c69-b9ac-3e628b67aed6",
+            "displayLabel": "Colleague Name",
+            "indexed": true
+        }        ,
+        {
+            "type": "string",
+            "name": "colleaguePosition",
+            "oid": "a573174b-92a6-4848-bb98-381db98ffc89",
+            "displayLabel": "ColleaguePosition",
+            "indexed": true
+        }
+    ],
+    "name": "Return2WorkReviews",
+    "oid": "b51b857a-5638-496a-883f-b1d4d4cc2dd4",
+    "displayLabel": "Return2 Work Reviews",
+    "relationships": [
+        {
+            "name": "theCallCollection",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step1TheCall",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step2CallPriorToReturnToWorkCo",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step2CallPrior2R2W",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step3SelfCertCollection",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step3SelfCert",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step4PreparingForTheReturnToWo",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step4Prep4R2WReview",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step5DiscussionCollection",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step5Discussion",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step6NextStepsAndOrActionsColl",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step6NextStepsActions",
+            "type": "incoming",
+            "displayField": "id"
+        },
+        {
+            "name": "step7DeclarationCollection",
+            "reverseRelationship": "r2WRObject",
+            "targetEntity": "Step7Declaration",
+            "type": "incoming",
+            "displayField": "id"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

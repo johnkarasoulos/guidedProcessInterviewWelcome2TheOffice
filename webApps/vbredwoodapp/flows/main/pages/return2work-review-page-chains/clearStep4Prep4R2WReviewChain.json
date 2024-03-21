@@ -1,0 +1,16 @@
+{
+  "root": "resetStep4Prep4R2WReview",
+  "description": "Clears Step4Prep4R2WReview form state",
+  "actions": {
+    "resetStep4Prep4R2WReview": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "description": "Resets step4Prep4R2WReview variable to the default state",
+      "label": "Reset Step4Prep4R2WReview variable",
+      "parameters": {
+        "variables": [
+          "$page.variables.step4Prep4R2WReview"
+        ]
+      }
+    }
+  }
+}

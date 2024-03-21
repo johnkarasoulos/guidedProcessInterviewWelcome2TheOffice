@@ -1,0 +1,193 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "b9e2719e-c808-4e2b-b426-78ef22198755",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "bb7d2567-576c-4f19-9d78-7e51437b17ea",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "2fc9f22c-6510-41f5-9bb4-12f7a6a60151",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "ca4edec3-c768-4af6-bc18-860b552635d6",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "7f894262-4457-4916-9abb-7f9910293f07",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "cc5ff178-d12b-4e96-992b-8502c2aadaf5",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "boolean",
+            "name": "hitAtrigger",
+            "oid": "09101670-990d-4ff7-a832-83939252ea2d",
+            "displayLabel": "hitAtrigger"
+        }        ,
+        {
+            "type": "date",
+            "name": "periodOfAbsenceStart",
+            "oid": "0d4aaf62-d3e1-46a6-a0f8-25b41988181e",
+            "displayLabel": "Period of absenceStart"
+        }        ,
+        {
+            "type": "date",
+            "name": "periodOfAbsenceUntil",
+            "oid": "5be97568-7967-462c-9d66-232a2d3f5890",
+            "displayLabel": "Period of absence until"
+        }        ,
+        {
+            "type": "number",
+            "name": "absencePercentage",
+            "oid": "91830350-7d61-4f50-be3d-72ff4219a00e",
+            "displayLabel": "absencePercentage"
+        }        ,
+        {
+            "type": "number",
+            "name": "monthsAbsence",
+            "oid": "5963a76a-61b6-4958-86ac-45712f21f3be",
+            "displayLabel": "monthsAbsence"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "currentlyOnRecordOfImprovement",
+            "oid": "48eec6f1-59ff-441e-b556-c2d455ecbee1",
+            "displayLabel": "Currently on record of improvement"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "currentlyOnAbsenceWarning",
+            "oid": "854cf7a6-a567-4b38-8ad9-9b5bd7f3a688",
+            "displayLabel": "Currently on absence warning"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "selfCertOrValidFitNoteProvided",
+            "oid": "4896fd8a-7e92-4af8-ab87-43a7d2800a36",
+            "displayLabel": "Self-cert or valid fit note provided"
+        }        ,
+        {
+            "type": "string",
+            "name": "selfCertOrValidFitNote",
+            "oid": "a7465b62-eeec-4386-8812-02c0cf8c5921",
+            "displayLabel": "Self-cert or valid fit note"
+        }        ,
+        {
+            "type": "boolean",
+            "name": "adheredToTheReportingProcedure",
+            "oid": "f96b39fe-13a8-4499-8ea3-369122f765ee",
+            "displayLabel": "Adhered to the reporting procedure"
+        }        ,
+        {
+            "type": "string",
+            "name": "reasonToAdhered",
+            "oid": "d31b8079-8d46-4c04-b0d0-792539062b3d",
+            "displayLabel": "Reason to Adhered to the reporting procedure"
+        }        ,
+{
+            "type": "string",
+            "name": "learnedDuringAbsence",
+            "oid": "991add4b-62de-4ccf-b09a-ebdc1b87a49d",
+            "displayLabel": "Learned during absence"
+        },
+        {
+            "type": "number",
+            "name": "r2WR",
+            "oid": "ed6a2b00-439a-4d68-856b-d6eb911b0a4a",
+            "displayLabel": "R2WR"
+        }
+    ],
+    "name": "Step4Prep4R2WReview",
+    "oid": "e4132079-228e-4949-8570-ef12130d83d1",
+    "displayLabel": "Step 4 – Preparing for the Return to Work Review",
+    "relationships": [
+        {
+            "name": "r2WRObject",
+            "reverseRelationship": "step4PreparingForTheReturnToWo",
+            "targetEntity": "Return2WorkReviews",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "r2WR",
+            "deleteRule": "restrict"
+        }
+    ],
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}
